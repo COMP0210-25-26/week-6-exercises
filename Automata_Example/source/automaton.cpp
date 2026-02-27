@@ -51,7 +51,7 @@ Automaton::Automaton(const vector<char> &A, const vector<vector<unsigned int>> &
         }
         for (auto &element : row)
         {
-            if (element > num_states)
+            if (element >= num_states)
             {
                 throw std::logic_error("Element found in transition matrix pointing to non existent state.");
             }
@@ -66,7 +66,7 @@ Automaton::Automaton(const vector<char> &A, const vector<vector<unsigned int>> &
             throw std::logic_error("Invalid accepting state found.");
         }
     }
-    if (accepting_states.size() > num_states)
+    if (accepting_states.size() >= num_states)
     {
         throw std::logic_error("Size of accepting state vector should be less than or equal to the number of states.");
     }
